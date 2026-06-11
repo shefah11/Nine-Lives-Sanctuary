@@ -48,3 +48,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         return "Welcome to the Sanctuary Administration Command Room.";
     });
 });
+
+// ===== ADOPTION APPLICATION ROUTES =====
+use App\Http\Controllers\AdoptionController;
+
+Route::get('/adoptions/apply/{cat_id}', [AdoptionController::class, 'showApplyForm'])->name('adoptions.apply');
