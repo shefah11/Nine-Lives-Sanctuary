@@ -11,10 +11,8 @@ return new class extends Migration
         Schema::create('adoptions', function (Blueprint $table) {
             $table->id('AdoptionID'); // Your Primary Key
             
-            // Foreign key pointing to default users table
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             
-            // Temporary nullable field since your friend's cat table isn't here yet
             $table->unsignedBigInteger('cat_id')->nullable();
             
             // Your Form Fields
