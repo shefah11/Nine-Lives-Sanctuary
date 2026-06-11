@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\HealthController;
+use App\Http\Controllers\AdoptionController;
 
 // ===== HOME ROUTE =====
 Route::get('/', function () {
@@ -50,6 +51,4 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 // ===== ADOPTION APPLICATION ROUTES =====
-use App\Http\Controllers\AdoptionController;
-
 Route::get('/adoptions/apply/{cat_id}', [AdoptionController::class, 'showApplyForm'])->name('adoptions.apply');
