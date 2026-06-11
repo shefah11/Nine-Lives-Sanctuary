@@ -11,17 +11,17 @@ return new class extends Migration
         Schema::create('adoptions', function (Blueprint $table) {
             $table->id('AdoptionID'); // Your Primary Key
             
-            // Foreign Keys linking User and Cat cleanly
+            // Foreign key pointing to default users table
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             
-            // FIX: Pointing to 'id' to match Member 3's exact table structure
-            $table->foreignId('cat_id')->constrained('cats', 'id')->onDelete('cascade');
+            // Temporary nullable field since your friend's cat table isn't here yet
+            $table->unsignedBigInteger('cat_id')->nullable();
             
-            // Form Data Fields
+            // Your Form Fields
             $table->string('full_name');
             $table->string('contact_number');
             
-            // Status tracker
+            // Status Tracking
             $table->string('status')->default('pending');
             $table->date('date')->useCurrent();
             $table->timestamps();
