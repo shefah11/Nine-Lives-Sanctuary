@@ -54,7 +54,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // ===== ADOPTION APPLICATION ROUTES =====
 Route::get('/adoptions/apply/{cat_id}', [AdoptionController::class, 'showApplyForm'])->name('adoptions.apply');
-
+Route::get('/adoptions/admin/queue', [AdoptionController::class, 'adminQueue'])->name('adoptions.admin_queue');
+Route::get('/adoptions/status', [AdoptionController::class, 'applicationStatus'])->name('adoptions.status');
+Route::put('/adoptions/update/{id}', [AdoptionController::class, 'updateStatus'])->name('adoptions.update');
 
 // ADOPTION GALLERY ROUTES
 Route::get('/', [CatController::class, 'index']);
