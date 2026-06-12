@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\HealthController;
 use App\Http\Controllers\AdoptionController;
+use App\Http\Controllers\CatController;
+
 
 // ===== HOME ROUTE =====
 Route::get('/', function () {
@@ -52,3 +54,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // ===== ADOPTION APPLICATION ROUTES =====
 Route::get('/adoptions/apply/{cat_id}', [AdoptionController::class, 'showApplyForm'])->name('adoptions.apply');
+
+
+// ADOPTION GALLERY ROUTES
+Route::get('/', [CatController::class, 'index']);
+
+// CAT DETAILS
+Route::get('/cat-details/{id}', [CatController::class, 'show']);
