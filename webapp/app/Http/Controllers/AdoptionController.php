@@ -8,6 +8,9 @@ use App\Models\Cat;
 
 class AdoptionController extends Controller
 {
+    /**
+     * 1. Display the Adoption Application Form for a specific cat
+     */
     public function showApplyForm($cat_id)
     {
         $cat = Cat::find($cat_id);
@@ -16,26 +19,35 @@ class AdoptionController extends Controller
             return redirect()->route('cats.index')->with('error', 'Cat not found.');
         }
 
-        return view('adopt.apply', compact('cat'));
+        // CHANGED: Changed 'adopt.apply' to 'adoptions.apply'
+        return view('adoptions.apply', compact('cat'));
     }
 
-    
+    /**
+     * 2. Display the Admin Pending Requests List Queue
+     */
     public function adminQueue()
     {
         $applications = Adoption::with(['user', 'cat'])->where('status', 'pending')->get();
 
-        return view('adopt.admin_queue', compact('applications'));
+        // CHANGED: Changed 'adopt.admin_queue' to 'adoptions.admin_queue'
+        return view('adoptions.admin_queue', compact('applications'));
     }
 
-    
+    /**
+     * 3. Display the User's Tracking Page for their application status
+     */
     public function applicationStatus()
     {
         $userApplications = Adoption::where('user_id', auth()->id())->get();
 
-        return view('adopt.status', compact('userApplications'));
+        // CHANGED: Changed 'adopt.status' to 'adoptions.status'[cite: 1]
+        return view('adoptions.status', compact('userApplications'));
     }
 
-    
+    /**
+     * 4. Admin Action: Approve or Reject Application
+     */
     public function updateStatus(Request $request, $id)
     {
         $application = Adoption::findOrFail($id);
