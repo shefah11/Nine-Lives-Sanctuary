@@ -19,7 +19,6 @@ class AdoptionController extends Controller
             return redirect()->route('cats.index')->with('error', 'Cat not found.');
         }
 
-        // CHANGED: Changed 'adopt.apply' to 'adoptions.apply'
         return view('adoptions.apply', compact('cat'));
     }
 
