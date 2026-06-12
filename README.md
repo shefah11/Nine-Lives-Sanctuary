@@ -328,7 +328,7 @@ Our database consists of 5 main tables designed to handle user accounts, cat ado
 
 ### ERD AND SEQUENCE DIAGRAM LINK
 
-**[Insert Google Drive Link Here]**
+**[(https://docs.google.com/document/d/1xsPjiVA2Fji6vPBLexrRZMJJuoausI2G94RjeouU_Jw/edit?usp=sharing)]**
 
 ### Key Relationships
 
