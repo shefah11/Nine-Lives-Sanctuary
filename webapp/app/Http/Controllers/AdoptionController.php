@@ -30,7 +30,6 @@ class AdoptionController extends Controller
     {
         $applications = Adoption::with(['user', 'cat'])->where('status', 'pending')->get();
 
-        // CHANGED: Changed 'adopt.admin_queue' to 'adoptions.admin_queue'
         return view('adoptions.admin_queue', compact('applications'));
     }
 
@@ -41,7 +40,6 @@ class AdoptionController extends Controller
     {
         $userApplications = Adoption::where('user_id', auth()->id())->get();
 
-        // CHANGED: Changed 'adopt.status' to 'adoptions.status'[cite: 1]
         return view('adoptions.status', compact('userApplications'));
     }
 
