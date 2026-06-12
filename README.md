@@ -293,11 +293,127 @@ php artisan serve
 //Frontend
 npm run dev
 
+## Database Design
 
+### Database Schema Overview
 
+Our database consists of 5 main tables designed to handle user accounts, cat adoption management, rescue reporting, and healthcare information.
 
+### Core Tables
 
+**User**
 
+* Stores customer and administrator account information.
+* Handles authentication and role management.
+
+**Cat**
+
+* Stores cat profiles available for adoption.
+* Contains details such as name, age, gender, description, image, and adoption status.
+
+**Adoption**
+
+* Stores adoption applications submitted by users.
+* Records the relationship between users and cats.
+
+**Report**
+
+* Stores rescue reports submitted by users regarding stray, injured, or missing cats.
+
+**Health**
+
+* Stores educational healthcare information and cat care guidelines displayed on the Healthcare Guide page.
+
+### Entity Relationship Diagram (ERD)
+
+### ERD AND SEQUENCE DIAGRAM LINK
+
+**[Insert Google Drive Link Here]**
+
+### Key Relationships
+
+* A User can submit multiple Reports (One-to-Many).
+* A User can submit multiple Adoption applications (One-to-Many).
+* A Cat can be associated with an Adoption application.
+* Each Adoption record belongs to one User and one Cat.
+* The Health table functions independently as a reference table for healthcare information.
+
+### Laravel Components Implementation
+
+#### Models and Relationships
+
+**User Model**
+
+* Stores user account information.
+* Has many Reports.
+* Has many Adoption applications.
+
+**Cat Model**
+
+* Stores cat adoption information.
+* Has one or many Adoption records.
+
+**Adoption Model**
+
+* Belongs to User.
+* Belongs to Cat.
+
+**Report Model**
+
+* Belongs to User.
+
+**Health Model**
+
+* Stores healthcare guide information.
+
+## Challenges Faced and Solutions
+
+### Challenge 1: Designing Database Relationships
+
+**Problem:**
+Determining the appropriate relationships between users, cats, adoption applications, and rescue reports while maintaining data consistency.
+
+**Solution:**
+The team designed an Entity Relationship Diagram (ERD) before implementation and established primary key and foreign key constraints to ensure data integrity.
+
+### Challenge 2: Implementing Laravel MVC Architecture
+
+**Problem:**
+Integrating Models, Views, and Controllers while maintaining a clear separation of responsibilities across the system.
+
+**Solution:**
+Laravel's MVC architecture was applied consistently by separating business logic into controllers, database operations into models, and user interfaces into Blade templates.
+
+### Challenge 3: Team Collaboration and Version Control
+
+**Problem:**
+Multiple team members worked on different modules simultaneously, creating the possibility of file conflicts and inconsistent project versions.
+
+**Solution:**
+GitHub was used for version control, allowing team members to manage updates, track changes, and collaborate efficiently throughout development.
+
+## Future Enhancements
+
+* Email notification system for adoption application updates.
+* Appointment scheduling for cat adoption visits.
+* Interactive map integration for rescue reporting.
+* Advanced search and filtering in the Adoption Gallery.
+* Administrator analytics dashboard.
+* Real-time adoption application status tracking.
+* Veterinary clinic directory and recommendation feature.
+* Mobile-responsive enhancements for improved user experience.
+
+## References
+
+1. Laravel Documentation. (2025). Laravel Framework Documentation. https://laravel.com/docs
+
+2. MySQL Documentation. (2025). MySQL Reference Manual. https://dev.mysql.com/doc
+
+3. Lucid Software Inc. Entity Relationship Diagram (ERD) Guide. https://www.lucidchart.com
+
+4. Munir, S., Mohd Istajib Mokhtar, & Ahmad Firdhaus Arham. (2023). Public perspectives on strays and companion animal management in Malaysia. BMC Public Health.
+
+5. SPCA Penang. Life as a Stray is Always Hard. https://spcapenang.net
 
 ## Conclusion
 
