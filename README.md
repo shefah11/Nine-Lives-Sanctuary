@@ -34,16 +34,16 @@ Nine Lives Sanctuary is a web-based cat adoption and rescue portal system develo
 
 ## Features and Functionalities
 
-1. Public/Adopter Features
+1. Adoption Gallery
    - Adoption Gallery Access: Dynamic browsing of all cats available for adoption. Users can view profiles containing names, age, gender, and descriptions.
    - Adoption Application Submission: An interactive form workflow allowing authenticated users to submit formal adoption requests for specific cats, establishing a link between the user and the chosen animal.
    - Educational Healthcare Hub: A static/dynamic reading repository displaying essential cat care guidelines, rescue handling tips, and wellness documentation.
   
-2. Good Samaritan/Reporter Features
+2. Report-a-Cat 
    - Incident Logging & Rescue Reporting: A specialized reporting form where users can upload details of stray, injured, or abandoned cats.
    - Metadata Capturing: The form requires critical data entry including visual evidence uploads (images), specific location descriptions, and a structured structural severity marker (e.g., critical, injured, stable) to help the sanctuary prioritize rescues.
   
-3. Sanctuary Administrator Features
+3. Sanctuary Administrator 
    - Cat Record Management (Full CRUD): Elevated administrative access to create, read, update, and delete cat profiles within the adoption gallery.
    - Incident Queue Processing: An administrative dashboard panel to review, update, and manage public rescue submissions and track the pipeline of incoming animals.
 
